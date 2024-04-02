@@ -1,0 +1,64 @@
+//
+//  main.c
+//  Inge asignacion #3
+//
+//  Created by Jonathan Rodriguez on 11/23/20.
+//
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <stdlib.h>
+#define SIZE 20
+
+int binary_converter(int);
+void invertir_string(char[], long int);
+
+int main()
+{
+    //Introduccion:
+    printf("Esto es un programa que toma un numero decimal y lo convierte a un numero binario.\n\n\n");
+
+    //Declaracion de variables:
+    int numero_binario, numero_decimal;
+
+    //Input al numero decimal:
+    printf("\nEntre un numero decimal ENTERO entre 0 y 1023: ");
+    scanf_s("%d", &numero_decimal);
+
+    while (numero_decimal < 0 || numero_decimal > 1023)
+    {
+        printf("\n\n\nUsted entro '%d', recuerde que el numero que entre debe ser mayor que 0 y menor que 1023.\n\nEntre nuevamente su numero decimal: ", numero_decimal);
+        scanf_s("%d", &numero_decimal);
+    }
+
+    //Conversion:
+    numero_binario = binary_converter(numero_decimal);
+
+    //Output al numero binario:
+   
+
+
+    printf("\n\n");
+    return 0;
+}
+
+int binary_converter(int decimal)
+{
+    int binario[10], index,n ;
+   
+    for (index = 0; decimal > 0; index++)
+    {
+        binario[index] = decimal % 2;
+        decimal = decimal / 2;
+    }
+    printf("\nEl numero en binario es=  ");
+    for (index = index - 1; index >= 0; index--)
+    {
+        printf("%d", binario[index]);
+    }
+    return 0;
+}
